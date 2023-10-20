@@ -24,14 +24,3 @@ void    *ft_memcpy(void *dst, const void *src, size_t n)
         *d++ = *s++;
     return dst;
 }
-
-/*
-int main(void)
-{
-    char dst[30] = "huseyin";
-    const char src[30] = "merhaba selam";
-    
-    printf("%s", ft_memcpy(dst, src, 3));
-    
-    return 0;
-}*/

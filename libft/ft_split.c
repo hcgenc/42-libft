@@ -13,59 +13,72 @@
 
 #include "libft.h"
 
-size_t ft_countword(const char *s, char c)
+static size_t	ft_countword(char const *s, char c)
 {
-    size_t  count;
+	size_t	count;
 
-    if (!*s)
-        return (0);
-    count = 0;
-    while (*s)
-    {
-        while (*s == c)
-            s++;
-        if (*s)
-            count++;
-        while (*s != c && *s)
-            s++;
-    }
-    return (count);
+	if (!*s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (count);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    char    **lst;
-    size_t  word_len;
-    size_t     i;
+	char	**lst;
+	size_t	word_len;
+	int		i;
 
-    lst = (char **)malloc((ft_countword(s, c) + 1) * sizeof(char *));
-    if (!lst)
-        return (0);
-    i = 0;
-    while (*s != '\0')
-    {
-        while (*s == c && *s != '\0')
-            s++;
-        if (*s != '\0')
-        {   if (ft_strchr(s, c) == NULL)
-                word_len = ft_strlen(s);
-            else
-                word_len = ft_strchr(s, c) - s;
-            lst[i++] = ft_substr(s, 0, word_len);
-            s += word_len;
-        }
-    }
-    lst[i] = NULL;
-    return (lst);
+	lst = (char **)malloc((ft_countword(s, c) + 1) * sizeof(char *));
+	i = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			if (!ft_strchr(s, c))
+				word_len = ft_strlen(s);
+			else
+				word_len = ft_strchr(s, c) - s;
+			lst[i++] = ft_substr(s, 0, word_len);
+			s += word_len;
+		}
+	}
+	lst[i] = NULL;
+	return (lst);
 }
 
-/*
-int main()
+
+int main(void)
 {
-    char s[] = "huseyın ! can genc";
-    char **split = ft_split(s, '!');
-    int i = 0;
-    while (split[i])
-        printf("%s\n", split[i++]);
-    free(split);
-}*/
+    // Test için bir giriş metni belirleyelim
+    char input[] = "Merhaba,dunya,Nasil,gidiyor?";
+
+    // ft_split fonksiyonunu kullanarak metni ayıralım
+    char **result = ft_split(input, ',');
+
+    // Elde edilen parçalanmış metni ekrana yazdıralım
+    for (int i = 0; result[i] != NULL; ++i)
+    {
+        printf("%s\n", result[i]);
+    }
+
+    // Belleği serbest bırakalım
+    for (int i = 0; result[i] != NULL; ++i)
+    {
+        free(result[i]);
+    }
+    free(result);
+
+    return 0;
+}

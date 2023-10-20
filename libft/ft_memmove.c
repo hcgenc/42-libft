@@ -34,13 +34,3 @@ void    *ft_memmove(void *dst, const void *src, size_t len)
     }
     return (dst);
 }
-
-int main(void)
-{
-    char dst[30] = "huseyin";
-    const char src[30] = "merhaba selam";
-
-    printf("%s\t%s", ft_memmove(dst, src, 3), memmove(dst, src, 3));
-
-    return 0;
-}

@@ -32,9 +32,3 @@ char    *ft_strdup(const char *s1)
     dest[i] = '\0';
     return (dest);
 }
-/*
-int main()
-{
-    char s[] = "selam";
-    printf("%s\t%s", strdup(s), ft_strdup(s));
-}*/

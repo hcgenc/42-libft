@@ -23,15 +23,3 @@ void ft_putendl_fd(char *s, int fd)
         write(fd, &s[i++], 1);
     write(fd, "\n", 1);
 }
-
-
-/*
-int main(void)
-{
-    int fd;
-    char s[] = "Saval.....";
-    fd = open("Saval.txt", O_WRONLY);
-    ft_putendl_fd(s , fd);
-    close(fd);
-    return 0;
-}*/

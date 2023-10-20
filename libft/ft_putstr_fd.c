@@ -21,16 +21,3 @@ void    ft_putstr_fd(char *s, int fd)
     while (s[i])
         write(fd, &s[i++], 1);
 }
-
-
-
-
-int main()
-{
-    int fd;
-    char s[] = "Sevval";
-    fd = open("Saval.txt", O_WRONLY);
-    ft_putstr_fd(s , fd);
-    close(fd);
-    
-}

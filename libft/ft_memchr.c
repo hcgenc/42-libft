@@ -30,11 +30,3 @@ void    *ft_memchr(const void *s, int c, size_t n)
     }
     return (0);
 }
-
-
-int main()
-{
-    const char a[] = "selamlarherkeseaaa";
-    char c = 'a';
-    printf("%s\t%s", memchr(a, c, 4), ft_memchr(a, c, 4));
-}

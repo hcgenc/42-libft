@@ -28,14 +28,3 @@ void    *ft_memset(void *b, int c, size_t len)
     }
     return b; 
 }
-
-/*
-int main()
-{
-    char str[10];
-
-    ft_memset(str, 'A', 10);
-    printf("Dizinin İçeriği: %s\n", str);
-    return (0);
-
-}*/

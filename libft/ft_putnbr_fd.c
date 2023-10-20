@@ -37,17 +37,3 @@ void ft_putnbr_fd(int n, int fd)
         }
     }
 }
-
-/*
-int main()
-{
-    int fd;
-    int number;
-    number = 12;
-    fd = open("Saval.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
-    ft_putnbr_fd(number, fd);
-    close(fd);
-
-    return 0;
-}
-*/

@@ -12,20 +12,8 @@
 
 #include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void    ft_putchar_fd(char c, int fd)
 {
+
     write(fd, &c, 1);
-
-}
-
-
-int main()
-{
-    int fd;
-    char s = 'S';
-    fd = open("Saval.txt", O_WRONLY);
-    ft_putchar_fd(s , fd);
-    close(fd);
-
-    return 0;
 }

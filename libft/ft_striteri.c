@@ -14,8 +14,9 @@
 #include "libft.h"
 
 void processUpperCase(unsigned int index, char *ch) {
-    if (*ch >= 'a' && *ch <= 'z') {
-        *ch = *ch - ('a' - 'A');
+    if (*ch >= 'A' && *ch <= 'Z')
+    {
+        *ch += 32;
     }
 
     printf("Index: %u, Uppercase: %c\n", index, *ch);
@@ -30,11 +31,11 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*)) {
     }
 }
 
-/*
+
 int main(void) {
-    char s[] = "huseyin";
+    char s[] = "HUSEYIN";
     ft_striteri(s, processUpperCase);
 
     return 0;
 }
-*/
+

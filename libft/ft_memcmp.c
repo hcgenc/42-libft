@@ -31,13 +31,3 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
     }
     return (0);
 }
-
-/*
-int main()
-{
-    char a[] = "huseyınwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-    char b[] = "sevval";
-    
-    printf("%d\t%d", memcmp(a, b, ft_strlen(a)), ft_memcmp(a, b, ft_strlen(b)));
-    return 0;
-}*/
