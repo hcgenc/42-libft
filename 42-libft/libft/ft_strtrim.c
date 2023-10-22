@@ -21,7 +21,7 @@ int	ft_getstart(const char *s1, const char *set)
 	i = 0;
 	while (i < len)
 	{
-		if (ft_strchr(set, s1[i]) == '\0')
+		if (ft_strchr(set, s1[i]) == NULL)
 			break ;
 		i++;
 	}
@@ -37,7 +37,7 @@ int	ft_getend(const char *s1, const char *set)
 	i = 0;
 	while (i < len)
 	{
-		if (ft_strchr(set, s1[len - i]) == '\0')
+		if (ft_strchr(set, s1[len - i]) == NULL)
 			break ;
 		i++;
 	}
@@ -46,8 +46,8 @@ int	ft_getend(const char *s1, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int	end;
+	int		start;
+	int		end;
 	char	*str;
 
 	if (s1 == NULL)

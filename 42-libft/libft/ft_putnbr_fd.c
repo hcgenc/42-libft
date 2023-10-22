@@ -14,6 +14,9 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	char	*str;
+	char	c;
+
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);
 	else
@@ -25,13 +28,13 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		if (n >= 10)
 		{
-			char	*str = ft_itoa(n);
+			str = ft_itoa(n);
 			write(fd, str, ft_strlen(str));
 			free(str);
 		}
 		else
 		{
-			char	c = n + '0';
+			c = n + '0';
 			write(fd, &c, 1);
 		}
 	}

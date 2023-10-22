@@ -12,50 +12,48 @@
 
 #include "libft.h"
 
-char	*ft_strrev(char *str)
+int	ft_digit_count(int i)
 {
-	int	i;
-	int	j;
-	int	tmp;
+	int	count;
 
-	i = 0;
-	j = ft_strlen(str);
-	while (j > i)
+	count = 0;
+	if (i < 0)
 	{
-		j--;
-		tmp = str[i];
-		str[i] = str[j];
-		str[j] = tmp;
-		i++;
+		i *= -1;
+		count++;
 	}
-	return (str);
+	while (i > 0)
+	{
+		i /= 10;
+		count++;
+	}
+	return (count);
 }
 
-char	*ft_itoa(int nbr)
-
+char	*ft_itoa(int n)
 {
-	int	i;
-	int	neg;
-	char	*tmp;
+	char	*str;
+	int		i;
 
-	i = 0;
-	neg = 0;
-	tmp = malloc(sizeof(char) * 12);
-	if (tmp == NULL || nbr == 0)
-		return ((nbr == 0) ? "0" : NULL);
-	if (nbr == -2147483648)
-		return ("-2147483648");
-	if (nbr < 0)
+	i = ft_digit_count(n);
+	str = malloc(i * sizeof(char) + 1);
+	if (!str)
+		return (0);
+	str[i--] = '\0';
+	if (n == 0)
 	{
-		neg = 1;
-		nbr *= -1;
+		str = ft_calloc(2, sizeof(char));
+		str[0] = '0';
 	}
-	while (nbr)
+	if (n < 0)
 	{
-		tmp[i++] = (nbr % 10) + '0';
-		nbr /= 10;
+		str[0] = '-';
+		n = n * -1;
 	}
-	if (neg)
-		tmp[i] = '-';
-	return (ft_strrev(tmp));
+	while (n > 0)
+	{
+		str[i--] = n % 10 + '0';
+		n = n / 10;
+	}
+	return (str);
 }
